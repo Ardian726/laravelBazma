@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BazmaController;
 use App\Http\Controllers\CobaController;
 use Illuminate\Support\Facades\Route;
 
@@ -43,3 +44,14 @@ Route::get("/coba/example", [CobaController::class, "example"]);
 Route::get("/coba/request", [CobaController::class, "request"]);
 
 Route::post("/coba/nested-request", [CobaController::class, "nestedRequest"]);
+
+Route::get("/response/index", [BazmaController::class, 'responseFunction']);
+Route::get("/response/header", [BazmaController::class, 'responseHeader']);
+
+Route::get("/enkripsi/code", [BazmaController::class, 'encryptionData']);
+
+Route::get("/redirect/to", [BazmaController::class, 'redirectTo']);
+Route::get("/redirect/from", [BazmaController::class, 'redirectFrom']);
+
+Route::get("/redirect/to/named", [BazmaController::class, 'redirectToNamedRoute'])->name("redirect.from");
+Route::get("/redirect/from/named", [BazmaController::class, 'redirectFromNamedRoute']);
